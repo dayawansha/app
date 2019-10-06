@@ -34,17 +34,15 @@ class BlogPost extends React.Component {
 
     }
 
-    addCommentMethod(event) {
+    addCommentMethod() {
         // console.log('event: ', event.target.value);
         console.log('event: ', this.state.comment);
         this.props.addComment(this.state.comment);
     }
 
-    changeFavoriteStatus(object) {
-
-        console.log('changeFavoriteStatus object##: ', object);
-
-        this.props.changeFavouriteStatus(object);
+    changeFavoriteStatus(Object) {
+        console.log('changeFavoriteStatus object##: ',Object );
+        // this.props.changeFavouriteStatus(Object);
     }
 
 
@@ -92,7 +90,7 @@ class BlogPost extends React.Component {
                                         <td  key={k.id+1}>{k.id}</td>
                                         <td  key={k.id+2}>{k.comment}</td>
                                         <td  key={k.id+3}>
-                                            <Button variant="primary" value="Submit" >Like</Button>
+                                            <Button key={k.id+4} variant="primary" value="Submit" onClick={this.changeFavoriteStatus(k)} >Like</Button>
                                         </td>
                                     </tr>
                                 ))}
@@ -116,15 +114,22 @@ class BlogPost extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-        posts: state.PostReducerTest
+        posts: state.postReducerTest
 });
 
-// const mapStateToProps = (state, ownProps) => ({
-//     errorMessage: state.errorMessage,
-//     inputValue: ownProps.location.pathname.substring(1)
-// })
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        // dispatching actions returned by action creators
+        addComment: (comment) => dispatch(addComment(comment)),
+        changeFavouriteStatus: (commentObject) => dispatch(changeFavouriteStatus(commentObject)),
+
+    }
+};
+
 
 export default connect(
     mapStateToProps,
-    {addComment,changeFavouriteStatus}
+    mapDispatchToProps
 )(BlogPost);

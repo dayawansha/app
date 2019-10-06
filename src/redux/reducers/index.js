@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import PostReducer from "./PostReducer";
+import postReducer from "./postReducer";
 import postStatusReducer from "./postStatusReducer";
 
 
 export default combineReducers(
-    { PostReducerTest : PostReducer,
-changeFavouriteStatusTest:postStatusReducer}
+    { postReducerTest : postReducer,
+        changeFavouriteStatusTest:postStatusReducer
+    }
 )
 

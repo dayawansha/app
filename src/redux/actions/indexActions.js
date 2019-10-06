@@ -1,6 +1,5 @@
 import { ADD_POST,CHANGE_FAVOURITE_STATUS } from "./actionTypes";
 
-/// payloda kiyanna data
 export const addComment = (comment) => ({
   type: ADD_POST,
   payload: {

@@ -6,7 +6,7 @@ import {ADD_POST} from "./../actions/actionTypes";
 
 const initialState = [];
 
-const PostReducer = (state = initialState, action)  => {
+const postReducer = (state = initialState, action)  => {
     // console.log("@action.type ",action.type);
     // console.log("@id ", state.length);
     switch (action.type) {
@@ -32,4 +32,4 @@ const PostReducer = (state = initialState, action)  => {
     }
 }
 
-export default PostReducer
+export default postReducer
