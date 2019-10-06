@@ -12,8 +12,8 @@ import {addComment,changeFavouriteStatus} from '../redux/actions/indexActions';
 
 class BlogPost extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
 
@@ -22,7 +22,7 @@ class BlogPost extends React.Component {
 
         this.onchange = this.onchange.bind(this);
         this.addCommentMethod = this.addCommentMethod.bind(this);
-        this.changeFavoriteStatus = this.changeFavoriteStatus.bind(this);
+        this.changeFavoriteStatusMethod = this.changeFavoriteStatusMethod.bind(this);
     }
 
     onchange(event) {
@@ -36,13 +36,13 @@ class BlogPost extends React.Component {
 
     addCommentMethod() {
         // console.log('event: ', event.target.value);
-        console.log('event: ', this.state.comment);
+        // console.log('event: ', this.state.comment);
         this.props.addComment(this.state.comment);
     }
 
-    changeFavoriteStatus(Object) {
+    changeFavoriteStatusMethod(Object) {
         console.log('changeFavoriteStatus object##: ',Object );
-        // this.props.changeFavouriteStatus(Object);
+        this.props.changeFavouriteStatus(Object);
     }
 
 
@@ -86,11 +86,11 @@ class BlogPost extends React.Component {
                             <tbody>
 
                                 {posts.map(k => (
-                                    <tr key={k}>
+                                    <tr key={k+6}>
                                         <td  key={k.id+1}>{k.id}</td>
                                         <td  key={k.id+2}>{k.comment}</td>
                                         <td  key={k.id+3}>
-                                            <Button key={k.id+4} variant="primary" value="Submit" onClick={this.changeFavoriteStatus(k)} >Like</Button>
+                                            <Button key={k.id+4} variant="primary" value="Submit" onClick={()=>(this.changeFavoriteStatusMethod(k))} >Like</Button>
                                         </td>
                                     </tr>
                                 ))}
