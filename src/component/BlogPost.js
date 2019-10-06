@@ -22,7 +22,6 @@ class BlogPost extends React.Component {
 
         this.onchange = this.onchange.bind(this);
         this.addCommentMethod = this.addCommentMethod.bind(this);
-        this.changeFavoriteStatusMethod = this.changeFavoriteStatusMethod.bind(this);
     }
 
     onchange(event) {
@@ -39,12 +38,6 @@ class BlogPost extends React.Component {
         // console.log('event: ', this.state.comment);
         this.props.addComment(this.state.comment);
     }
-
-    changeFavoriteStatusMethod(Object) {
-        // console.log('changeFavoriteStatus object##: ',Object );
-        this.props.changeFavouriteStatus(Object);
-    }
-
 
     render() {
 
@@ -90,7 +83,8 @@ class BlogPost extends React.Component {
                                         <td  key={k.id+1}>{k.id}</td>
                                         <td  key={k.id+2}>{k.comment}</td>
                                         <td  key={k.id+3}>
-                                            <Button key={k.id+4} variant="primary" value="Submit" onClick={()=>(this.changeFavoriteStatusMethod(k))} >Like</Button>
+                                            <Button key={k.id+4} variant="primary" value="Submit" onClick={()=>(this.props.changeFavouriteStatus(k))} >Like</Button>
+                                            {/*<Button key={k.id+4} variant="primary" value="Submit" onClick={()=>(this.props.changeFavouriteStatus(k))} >Like</Button>*/}
                                         </td>
                                     </tr>
                                 ))}
