@@ -46,7 +46,7 @@ class FavoritePost extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    posts: state.postReducerTest
+    posts: state.changeFavouriteStatusTest
 });
 
 

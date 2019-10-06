@@ -10,16 +10,20 @@ const postStatusReducer = (state = initialState, action)  => {
 
     switch (action.type) {
         case CHANGE_FAVOURITE_STATUS: {
-            const {comment} = action.payload;
-            // const {id} = action.payload;
-            console.log("@action.type @ postStatusReducer ", action.type);
+            const {commentObject} = action.payload;
+            // const {favourite} = action.payload.favourite;
+
+            console.log("commentObject", commentObject);
+            // console.log("favourite", favourite);
+
             // console.log("@action.payloade ", action.payload);
-            // console.log("@state", state);
-            // console.log("...state", ...state);
+            console.log("...state", ...state);
             return [
                 ...state,
                 {
-
+                    comment: commentObject.comment,
+                    id: commentObject.id,
+                    favourite: true
                 }
             ];
         }

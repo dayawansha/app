@@ -41,7 +41,7 @@ class BlogPost extends React.Component {
     }
 
     changeFavoriteStatusMethod(Object) {
-        console.log('changeFavoriteStatus object##: ',Object );
+        // console.log('changeFavoriteStatus object##: ',Object );
         this.props.changeFavouriteStatus(Object);
     }
 
